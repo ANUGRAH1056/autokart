@@ -63,14 +63,14 @@ function Home() {
   const [category, setCategory] = useState("All");
   const [price, setPrice] = useState(0);
   const [minRating, setMinRating] = useState(0);
-  const [sort, setSort] = useState(SORTS[0]);
+  const [sort, setSort] = useState(SORTS[0]!);
 
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
-    const range = PRICE_RANGES[price];
+    const range = PRICE_RANGES[price]!;
     const list = PRODUCTS.filter(
       (p) =>
         (!q || p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)) &&
@@ -132,7 +132,7 @@ function Home() {
       <Section id="categories" title="Shop by Category" kicker="Categories">
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {CATEGORIES.map((c, i) => {
-            const Icon = CATEGORY_ICONS[i];
+            const Icon = CATEGORY_ICONS[i]!;
             return (
               <button
                 key={c}
@@ -157,7 +157,7 @@ function Home() {
         <div className="mb-6 flex flex-wrap gap-2">
           <Select value={category} onChange={setCategory} options={["All", ...CATEGORIES]} />
           <Select
-            value={PRICE_RANGES[price].label}
+            value={PRICE_RANGES[price]!.label}
             onChange={(v) => setPrice(PRICE_RANGES.findIndex((r) => r.label === v))}
             options={PRICE_RANGES.map((r) => r.label)}
           />
