@@ -77,11 +77,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "AutoKart — Premium Car Accessories" },
+      {
+        name: "description",
+        content: "Premium car accessories built to make every journey better.",
+      },
+      { name: "author", content: "AutoKart" },
+      { property: "og:title", content: "AutoKart — Upgrade Your Drive" },
+      {
+        property: "og:description",
+        content: "Premium car accessories built to make every journey better.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
